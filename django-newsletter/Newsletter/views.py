@@ -28,7 +28,7 @@ def send_subscription_message() -> None:
 		
 		email = EmailMessage(
 			settings.SUBSCRIPTION_SUBJECT,
-			render_to_string("src/mail.html", {"message": message}),
+			render_to_string("newsletter/mail.html", {"message": message}),
 			to = [subscriber.email for subscriber in subscribers]
 		)
 		
@@ -67,7 +67,7 @@ def send_subscription_message() -> None:
 					
 					stdout.write(f"[INFO] {message.id} [STATUS] Sent\n")
 		
-				except socket.gaierror:
-					print("An error occurred!!!")
+				except socket.gaierror as e:
+					stdout.write(f"{e}\n")
 				
 				

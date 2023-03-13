@@ -1,12 +1,12 @@
 from pathlib import Path
-import os
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-eq)zg316q1nz3&sz!6e#8wbno$9ft7@nmo1%l!6x!9ft+0ejxz'
+SECRET_KEY = 'django-insecure-^f7rebr(@pbv_k@c45z%4v9z5(zs=_fh)25a3p4sr=fth3q8su'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -26,7 +26,7 @@ DEFAULT_APPS = [
 ]
 
 CUSTOM_APPS = [
-	"src.apps.SrcConfig",
+	"newsletter" # app
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
@@ -41,12 +41,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Newsletter.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, "templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,7 +59,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Newsletter.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
@@ -105,13 +105,21 @@ USE_L10N = True
 
 USE_TZ = True
 
-TIME_INPUT_FORMATS = ('%I:%M %p',)
-DATE_INPUT_FORMATS = ("%Y-%m-%d")
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# custom config
+
+TIME_INPUT_FORMATS = ('%I:%M %p',)
+DATE_INPUT_FORMATS = ("%Y-%m-%d")
 
 # Email Config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -124,3 +132,4 @@ DEFAULT_FROM_EMAIL = "DjangoNewsletter<no_reply@domain.com>"
 
 # include this
 SUBSCRIPTION_SUBJECT = "Test Subscription Package"
+

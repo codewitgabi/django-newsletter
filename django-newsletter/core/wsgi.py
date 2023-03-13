@@ -1,5 +1,5 @@
 """
-WSGI config for Newsletter project.
+WSGI config for core project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,16 +11,15 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Newsletter.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
 
 application = get_wsgi_application()
 
 
-from src.views import send_subscription_message
+from newsletter.views import send_subscription_message
 from threading import Thread
 
 
 # start email scheduler thread
 thread = Thread(target=send_subscription_message)
 thread.start()
-

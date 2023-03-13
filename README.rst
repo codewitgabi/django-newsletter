@@ -7,10 +7,10 @@ This package is for automatically sending mails to subscribers.
 Quick Start
 -------------
 
-1. Add "src" to INSTALLED_APPS in your project's settings.py
+1. Add "newsletter" to INSTALLED_APPS in your project's settings.py
    INSTALLED_APPS = [
        ....
-       "src",
+       "newsletter",
        ....
    ]
 
